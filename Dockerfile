@@ -20,7 +20,6 @@ RUN apt-get update \
     && apt-get install -y file \
     && apt-get install -y sudo
 
-
 RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
     && cd mecab-ipadic-neologd \
     && bin/install-mecab-ipadic-neologd -n -y
