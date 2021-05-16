@@ -1,7 +1,8 @@
-MAINTAINER Fermi-D
-
 # latest kaggle image
 FROM gcr.io/kaggle-images/python:latest
+
+# author
+MAINTAINER Fermi-D
 
 # add package
 RUN pip install qiskit
