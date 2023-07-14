@@ -1,30 +1,35 @@
-# latest kaggle image
-FROM gcr.io/kaggle-images/python:latest
+# latest datascince-notebook image
+FROM jupyter/datascience-notebook:latest
 
-# author
-MAINTAINER Fermi-D
+# name
+MAINTAINER fermid
 
 # add package
-RUN pip install qiskit
+# add python package
 RUN pip install qutip
 RUN pip install qucat
+RUN pip install qucumber
+RUN pip install qiskit
+RUN pip install qulacs
+RUN pip install optuna
 
-RUN apt-get update \
-    && apt-get install -y mecab \
-    && apt-get install -y libmecab-dev \
-    && apt-get install -y mecab-ipadic-utf8 \
-    && apt-get install -y git \
-    && apt-get install -y make \
-    && apt-get install -y curl \
-    && apt-get install -y xz-utils \
-    && apt-get install -y file \
-    && apt-get install -y sudo
+#RUN apt-get update \
+    #&& apt-get install -y git \
+    #&& apt-get install -y make \
+    #&& apt-get install -y curl \
+    #&& apt-get install -y xz-utils \
+    #&& apt-get install -y file \
+    #&& apt-get install -y sudo
 
-RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
-    && cd mecab-ipadic-neologd \
-    && bin/install-mecab-ipadic-neologd -n -y
 
-RUN pip install mecab-python3
+#RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git \
+    #&& cd mecab-ipadic-neologd \
+    #&& bin/install-mecab-ipadic-neologd -n -y
+
+
+# add julia package
+#RUN julia -e 'import Pkg; Pkg.update()' && \
+    #julia -e 'import Pkg; Pkg.add("Plots")'
 
 # jupyter extension
-RUN jupyter labextension install @lckr/jupyterlab_variableinspector
+#RUN jupyter labextension install @lckr/jupyterlab_variableinspector
